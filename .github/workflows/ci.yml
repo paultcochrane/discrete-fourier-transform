@@ -8,9 +8,10 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Install dependencies
-      uses: actions/checkout@v4
-      run: apt install texlive-latex-extra latex-beamer texlive-fonts-extra texlive-fonts-recommended lmodern make latexmk
+      - uses: actions/checkout@v4
 
-    - name: Build slides
-      run: cd git && make
+      - name: Install dependencies
+        run: apt install texlive-latex-extra latex-beamer texlive-fonts-extra texlive-fonts-recommended lmodern make latexmk
+
+      - name: Build slides
+        run: cd git && make
