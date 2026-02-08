@@ -1,0 +1,78 @@
+\documentclass[t,xcolor={svgnames},aspectratio=169]{beamer}
+\usetheme{metropolis}
+
+\title{Introducing the discrete Fourier transform}
+\author{Dorotea Avra}
+
+\begin{document}
+
+\maketitle
+
+\begin{frame}{Background}
+    \begin{itemize}
+        \item From Wikipedia:\footnote{\url{https://en.wikipedia.org/wiki/Discrete_Fourier_transform}}
+    \end{itemize}
+    \begin{quotation}
+        the discrete Fourier transform is a discrete version of the Fourier
+        transform that converts a finite sequence of equally-spaced samples of a
+        function to a same-length sequence of equally spaced samples of the
+        discrete-time Fourier transform [\ldots].
+    \end{quotation}
+\end{frame}
+
+\begin{frame}{Background}
+    \begin{itemize}
+        \item If data sets contain periodic oscillations, one can analyse
+            them with ``spectral methods'', a.k.a. ``Fourier transform
+            methods''.
+        \item Sometimes it is easier or more useful to analyse and process
+            data in the frequency domain than it is in the time domain.
+        \item The discrete Fourier transform is a numerical method to
+            calculate the Fourier transform of a data set on a computer.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Discrete Fourier transformation definition}
+    Consider a vector of $N$ evenly-spaced time series
+    points,\footnote{Discussion based on Chapter 5.2 Spectral Analysis from
+    \emph{Numerical Methods for Physics} by Alejandro L.\ Garcia, 1994.}
+
+    \begin{equation}
+        \mathbf{y} = [y_1, y_2, \ldots, y_N]
+    \end{equation}
+
+    The data are sampled every $\tau$ seconds, thus giving us a list of time
+    points defined by:
+
+    \begin{equation}
+        t_i = \tau (i - 1)
+    \end{equation}
+
+    where $i$ is the 1-based index of the input vector.
+\end{frame}
+
+\begin{frame}{Discrete Fourier transformation definition}
+    Given the vector of data points, $\mathbf{y}$, we can define its discrete
+    Fourier transform, $\mathbf{Y}$, as a vector:
+
+    \begin{equation}
+        Y_{k+1} = \sum_{j=0}^{N-1} y_{j+1} e^{-2 \pi i j k / N}
+    \end{equation}
+
+    where $i = \sqrt{-1}$.  Note that $j$ and $k$ start at zero, whereas the
+    vector uses a 1-based index.
+\end{frame}
+
+\begin{frame}{Example}
+    Following the discrete Fourier transform discussion in
+    Garcia,\footnote{Chapter 5.2 Spectral Analysis from \emph{Numerical Methods for
+    Physics} by Alejandro L.\ Garcia, 1994.} using a sampling interval of
+    $\tau = 1$, $N = 50$ data points, a signal frequency of $f_s = 0.2$, and
+    a phase of $\phi_s = 0$ we obtain the following graph:
+
+    \centerline{%
+        \includegraphics[width=0.5\textwidth]{dft-sine-wave.png}
+    }
+\end{frame}
+
+\end{document}
