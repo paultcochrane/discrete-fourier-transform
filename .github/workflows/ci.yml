@@ -14,4 +14,4 @@ jobs:
         run: sudo apt install texlive-latex-recommended texlive-latex-extra texlive-fonts-extra texlive-fonts-recommended lmodern make latexmk
 
       - name: Build slides
-        run: cd git && make
+        run: make
