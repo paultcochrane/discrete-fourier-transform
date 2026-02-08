@@ -1,0 +1,17 @@
+name: Build slides in CI
+
+on:
+  [push, pull_request]
+
+jobs:
+  build:
+    runs-on: ubuntu-22.04
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install dependencies
+        run: sudo apt install texlive-latex-recommended texlive-latex-extra texlive-luatex make latexmk
+
+      - name: Build slides
+        run: make
