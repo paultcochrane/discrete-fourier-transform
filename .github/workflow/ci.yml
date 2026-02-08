@@ -1,0 +1,19 @@
+name: Build slides in CI
+
+on:
+  push:
+    branches: [ $default-branch ]
+  pull_request:
+    branches: [ $default-branch ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Install dependencies
+    - uses: actions/checkout@v4
+      run: apt install texlive-latex-extra latex-beamer texlive-fonts-extra texlive-fonts-recommended lmodern make latexmk
+
+    - name: Build slides
+      run: cd git && make
