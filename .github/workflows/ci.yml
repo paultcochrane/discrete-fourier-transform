@@ -9,7 +9,7 @@ jobs:
 
     steps:
     - name: Install dependencies
-    - uses: actions/checkout@v4
+      uses: actions/checkout@v4
       run: apt install texlive-latex-extra latex-beamer texlive-fonts-extra texlive-fonts-recommended lmodern make latexmk
 
     - name: Build slides
