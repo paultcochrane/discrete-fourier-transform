@@ -1,4 +1,4 @@
-# Introduction to the discrete Fourier transform
+# A brief introduction to the discrete Fourier transform
 
 Example LaTeX beamer based slides introducing the discrete Fourier transform
 along with a simple example.
