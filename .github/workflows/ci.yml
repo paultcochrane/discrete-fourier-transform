@@ -10,11 +10,12 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Install dependencies
-        run: sudo apt install texlive-latex-recommended texlive-latex-extra texlive-luatex make latexmk
-
       - name: Build slides
-        run: make
+        uses: xu-cheng/latex-action@v4
+        with:
+          root_file: discrete-fourier-transform.tex
+        texlive_version: 2025
+        latexmk_use_lualatex: true
 
       - name: Archive built PDF document
         uses: actions/upload-artifact@v4
