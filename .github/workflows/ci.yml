@@ -19,5 +19,5 @@ jobs:
       - name: Archive built PDF document
         uses: actions/upload-artifact@v4
         with:
-          name: git-pdf
-          path: git.pdf
+          name: dft-slides
+          path: discrete-fourier-transform.pdf
